@@ -1,3 +1,4 @@
+// TODA LA CONFIGURACION Y LOGICA DEL CLIENTE VAN AQUÍ
 
 const lblOnline = document.querySelector('#lblOnline');
 const lblOffline = document.querySelector('#lblOffline');
@@ -18,9 +19,12 @@ socket.on('disconnect', ()=>{
     lblOnline.style.display = 'none';
 });
 
+socket.on('enviar-mensaje', (payload)=>{
+    console.log(payload);
+})
+
 btnEnviar.addEventListener( 'click' , ()=>{
     const mensaje = txtMensaje.value;
-    txtMensaje.value = null;
 
     const payload = {
         mensaje,
